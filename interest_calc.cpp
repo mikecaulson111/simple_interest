@@ -50,10 +50,12 @@ int main(int argc, char* argv[]) {
     double year_tot_paid = 0;
     double year_tot_interest = 0;
     while (loan_amt > 0) {
-        double temp = loan_amt - month_payments;
+        // double temp = loan_amt - month_payments;
+        double temp = loan_amt;
         double t2 = temp * ((interest_rate / 100.0) / 12);
         total_interest += t2;
-        loan_amt = temp + t2;
+        
+        loan_amt = temp + t2 - month_payments;
         if (loan_amt < 0) {
             loan_amt = 0;
         }
